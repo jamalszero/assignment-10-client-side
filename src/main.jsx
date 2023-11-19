@@ -29,12 +29,12 @@ const router = createBrowserRouter([
       {
         path: "/products/:brand_name",
         element: <Products></Products>,
-        loader: ({params}) => fetch(`http://localhost:3000/products/${params.brand_name}`)
+        loader: ({params}) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/products/${params.brand_name}`)
       },
       {
         path: "/product-details/:_id",
         element: <ProductDetails></ProductDetails>,
-        loader: ({params}) => fetch(`http://localhost:3000/product-details/${params._id}`)
+        loader: ({params}) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/product-details/${params._id}`)
       },
       {
         path: "/sign-up",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/update-product/:_id",
         element: <UpdateProduct></UpdateProduct>,
-        loader: ({params}) => fetch(`http://localhost:3000/product-details/${params._id}`)
+        loader: ({params}) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/product-details/${params._id}`)
       },
       {
         path: "/my-cart",

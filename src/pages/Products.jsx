@@ -11,7 +11,7 @@ const Products = () => {
     return (
         <div>
             <Slider></Slider>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 justify-between container mx-auto mt-20">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 justify-between container mx-auto my-20">
             {
                 products.map((product => <div className="container mx-auto" key={product._id}>
                     <div className="card card-compact bg-base-100 border">

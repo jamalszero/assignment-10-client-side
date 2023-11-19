@@ -8,7 +8,7 @@ const Brands = () => {
     console.log(brands);
     
     useEffect( () => {
-        fetch("/data.json")
+        fetch("./data.json")
         .then(res => res.json())
         .then(data => setBrands(data));
     }, [])

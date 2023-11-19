@@ -15,7 +15,7 @@ const AddProduct = () => {
         const product = { name, image_url, brand_name, type, price, rating, description };
 
         //send data to server/back-end
-        fetch("http://localhost:3000/products", {
+        fetch("https://b8a10-brandshop-server-side-jamalszero.vercel.app/products", {
             method: "POST",
             headers: {
                 'content-type': "application/json"

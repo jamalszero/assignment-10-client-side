@@ -6,7 +6,7 @@ const ProductDetails = () => {
     const { name, image_url, brand_name, price, description } = product;
 
      const handleAddToCart = () => {
-        fetch("http://localhost:3000/cart", {
+        fetch("https://b8a10-brandshop-server-side-jamalszero.vercel.app/cart", {
             method: "POST",
             headers: {
                 'content-type' : 'application/json'

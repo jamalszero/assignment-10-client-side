@@ -5,7 +5,7 @@ const NavBar = () => {
         <div className="bg-[#451952]">
             <div className="flex flex-col lg:flex-row py-3 items-center justify-between bg-[#451952] container mx-auto">
                 <div className="flex flex-col items-center lg:flex-row gap-4">
-                    <img src="/logo.svg" alt="logo" className="w-28" />
+                    <img src="https://i.ibb.co/f1KLzw8/logo.png" alt="logo" className="w-28" />
                     <h3 className="font-bold text-3xl text-white font-rajdhani mb-3 lg:mb-0">
                         Gadget Burst
                     </h3>
@@ -23,7 +23,7 @@ const NavBar = () => {
                     <div className="flex flex-col lg:flex-row justify-center items-center gap-3">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full  mt-4 lg:mt-0">
-                                <img alt="Tailwind CSS Navbar component" src="/Jamal.jpg" />
+                                <img alt="Tailwind CSS Navbar component" src="https://i.ibb.co/FBmB4wG/Jamal.jpg" />
                             </div>
                         </label>
                         <p className="font-semibold text-white">Jamal</p>

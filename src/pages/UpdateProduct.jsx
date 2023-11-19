@@ -17,7 +17,7 @@ const UpdateProduct = () => {
         const rating = form.rating.value;
         const product = { name, image_url, brand_name, type, price, rating };
 
-        fetch(`http://localhost:3000/products/${_id}`, {
+        fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/products/${_id}`, {
             method: "PATCH",
             headers: {
                 'content-type': "application/json"
@@ -26,21 +26,19 @@ const UpdateProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
-                    if (data.insertedId) {
-                        Swal.fire({
-                            position: "center",
-                            icon: "success",
-                            title: "Product successfully updated",
-                            showConfirmButton: false,
-                            timer: 2000
-                        });
-                    }
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Product successfully updated",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 }
-            });
+            })
+    };
 
-    }
+
     return (
         <div className="my-10">
             <div >
@@ -116,3 +114,8 @@ const UpdateProduct = () => {
 };
 
 export default UpdateProduct;
+
+
+
+
+
