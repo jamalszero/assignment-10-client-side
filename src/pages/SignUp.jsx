@@ -1,13 +1,30 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const SignUp = () => {
+
+    const authentications = useContext(AuthContext);
+    const {createUser} = authentications;
+
+    const handleCreateUser = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const photo_url = form.photo_url.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        createUser(name, photo_url, email, password);
+        
+    };
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className=" w-5/6 lg:w-2/4">
                     <h1 className="font-semibold text-4xl text-center mb-5">Sign Up</h1>
                     <div className="card w-full shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleCreateUser} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

@@ -15,6 +15,8 @@ import UpdateProduct from './pages/UpdateProduct';
 import Cart from './pages/Cart';
 import ErrorPage from './pages/ErrorPage';
 import Home from './pages/Home';
+import AuthProvider from './provider/AuthProvider';
+import PrivateRoute from './components/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -29,12 +31,12 @@ const router = createBrowserRouter([
       {
         path: "/products/:brand_name",
         element: <Products></Products>,
-        loader: ({params}) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/products/${params.brand_name}`)
+        loader: ({ params }) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/products/${params.brand_name}`)
       },
       {
         path: "/product-details/:_id",
-        element: <ProductDetails></ProductDetails>,
-        loader: ({params}) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/product-details/${params._id}`)
+        element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/product-details/${params._id}`)
       },
       {
         path: "/sign-up",
@@ -46,16 +48,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-product",
-        element: <AddProduct></AddProduct>
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
       {
         path: "/update-product/:_id",
-        element: <UpdateProduct></UpdateProduct>,
-        loader: ({params}) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/product-details/${params._id}`)
+        element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://b8a10-brandshop-server-side-jamalszero.vercel.app/product-details/${params._id}`)
       },
       {
         path: "/my-cart",
-        element: <Cart></Cart>
+        element: <PrivateRoute><Cart></Cart></PrivateRoute>
       }
     ]
   },
@@ -63,7 +65,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 )
- 

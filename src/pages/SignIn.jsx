@@ -1,13 +1,27 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const SignIn = () => {
+
+const authentications = useContext(AuthContext);
+const {handleGoogleSignIn, signIn} = authentications;
+
+const handleSignIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password);
+};
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className=" w-5/6 lg:w-2/4">
                     <h1 className="font-semibold text-4xl text-center mb-5">Sign In</h1>
                     <div className="card w-full shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleSignIn} className="card-body">
 
                             <div className="form-control">
                                 <label className="label">
@@ -28,7 +42,7 @@ const SignIn = () => {
                             </div>
 
                             <div className="flex flex-col lg:flex-row justify-center gap-3 items-center mt-5">
-                            <Link to="" className="btn btn-sm text-center text-blue-600 underline text-base ">
+                            <Link onClick={handleGoogleSignIn} className="btn btn-sm text-center text-blue-600 underline text-base ">
                                 Sign in with google
                             </Link>
                             <Link to="/sign-up" className="btn btn-sm text-center text-blue-600 underline text-base mt-2 lg:mt-0">
